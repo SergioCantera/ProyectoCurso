@@ -1,0 +1,36 @@
+<html>
+    <body>
+    {% include "superior/barra.html" %}
+    
+    <h2 style="color: red">
+    Hola, estamos viendo nuestra primera plantilla
+    </h2>
+
+    {% comment %} Así se especifican comentarios
+    en las plantillas html de django
+    {% endcomment %}
+
+    {% if persona.nombre == 'Sergio' %}
+    <p>El curso lo imparte el profesor titular</p>
+    {% else %}
+    <p>El curso lo imparte el profesor suplente</p>
+    {% endif %}
+
+    <p>El nombre del profesor es: {{persona.nombre.upper}} {{persona.apellido.upper}}</p>
+    <p>Estamos repasando las plantillas a d&iacute;a: {{fecha.day}}/{{fecha.month}}/{{fecha.year}}</p>
+    <p><strong>Temas del curso:</strong></p>
+    <p>
+    <ul>
+        {% if temas %}
+            {% for tema in temas %}
+                <li>{{tema}}</li>
+            {% endfor %}
+        
+        {% else %}
+            <p>No hay temas que mostrar</p>
+        {% endif %}
+    </ul>
+    </p>
+    <p>Los d&iacute;as: {{dias.1}}, {{dias.2}} y {{dias.3}}</p>
+    </body>
+</html>
